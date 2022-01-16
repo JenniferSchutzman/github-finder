@@ -12,7 +12,6 @@ export default function App() {
       <Router>
         <div className="flex flex-col justify-between h-screen">
           <Navbar />
-          <main className="container mx-auto px-3 pb-12">Content</main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -21,9 +20,6 @@ export default function App() {
           </Routes>
           <Footer />
         </div>
-        {/* 
-      <h1 className="text-3xl bg-purple-500 text-white">Hello world!</h1>
-      <button className="btn"> Click</button> */}
       </Router>
     </GithubProvider>
   );
