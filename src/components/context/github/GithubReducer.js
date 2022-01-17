@@ -1,5 +1,7 @@
 const githubReducer = (state, action) => {
-  console.log("action.type", action.type);
+  // console.log("action.type", action.type);
+
+  // console.log("state before ...state", state);
   switch (action.type) {
     case "CLEAR_USERS":
       return {
@@ -10,6 +12,13 @@ const githubReducer = (state, action) => {
       return {
         ...state,
         users: action.payload,
+        loading: false,
+      };
+
+    case "GET_USER":
+      return {
+        ...state,
+        user: action.payload,
         loading: false,
       };
 
