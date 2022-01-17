@@ -4,18 +4,18 @@ import GithubContext from "../context/github/GithubContext";
 function UserSearch() {
   const [text, setText] = useState("");
 
-  const { users, searchUsers } = useContext(GithubContext);
+  const { users, searchUsers, clearUsers } = useContext(GithubContext);
 
   const handleChange = (e) => setText(e.target.value);
 
+  // console.log("users in UserSearch", users);
   const handleSubmit = (e) => {
+    // bc it is a form submit, we need an e.preventDefault() to stop the built-in html call
     e.preventDefault();
-
     if (text === "") {
       alert("Please enter something");
     } else {
       searchUsers(text);
-
       setText("");
     }
   };
@@ -45,7 +45,9 @@ function UserSearch() {
       </div>
       {users.length > 0 && (
         <div>
-          <button className="btn btn-ghost btn-lg">Clear</button>
+          <button className="btn btn-ghost btn-lg" onClick={clearUsers}>
+            Clear
+          </button>
         </div>
       )}
     </div>
